@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-08-28",
+    "venue": "The Fighting Cocks",
+    "city": "London (Kingston) , UK",
+    "ticketUrl": "https://the-fighting-cocks.co.uk/events/vain-wild/",
+    "soldOut": false
+  },
+  {
+    "date": "2026-09-28",
+    "venue": "New Cross Inn (with Spread Eagle)",
+    "city": "London, UK",
+    "ticketUrl": "https://dice.fm/event/eoyly6-spread-eagle-26th-sep-new-cross-inn-london-tickets?lng=en",
+    "soldOut": false
+  },
+  {
+    "date": "2026-11-26",
+    "venue": "Holy Diver (with Graham Bonnet)",
+    "city": "Manchester (Stockport), UK",
+    "ticketUrl": "https://www.skiddle.com/whats-on/Stockport/Holy-Diver/Graham-Bonnet-Band/42428733/#tickets",
+    "soldOut": false
+  },
+  {
+    "date": "2026-11-27",
+    "venue": "Holy Diver (with Graham Bonnet)",
+    "city": "Manchester (Stockport), UK",
+    "ticketUrl": "https://www.skiddle.com/whats-on/Stockport/Holy-Diver/Graham-Bonnet-Band/42428733/#tickets",
+    "soldOut": false
+  }
+
+]

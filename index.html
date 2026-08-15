@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VAIN WILD - British Glam Rock</title>
+<meta name="description" content="VAIN WILD - glammed-up British hard rock from the South coast. Debut album out now. Tour dates, video and links." />
+<meta property="og:title" content="VAIN WILD" />
+<meta property="og:description" content="Glammed-up British hard rock. Debut album out now." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<style>
+  :root {
+    --bg:       #150018;
+    --bg-2:     #1d0426;
+    --panel:    #21072b;
+    --ink:      #fceff6;
+    --muted:    #c096b8;
+    --muted-2:  #8a6182;
+    --line:     #3d1442;
+    --pink:     #ff2e7e;
+    --pink-lo:  rgba(255,46,126,0.13);
+    --cyan:     #2ee6ff;
+    --gold:     #ffc93d;
+    --maxw:     1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .eyebrow {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
+  .eyebrow .spark { color: var(--cyan); margin: 0 0.4em; }
+
+  /* nav  */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 24px;
+    background: rgba(21,0,24,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-brand {
+    font-family: "Anton", sans-serif;
+    font-size: 1.3rem; letter-spacing: 0.05em; text-transform: uppercase;
+    transform: skewX(-6deg);
+    color: var(--ink);
+  }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a {
+    font-family: "Space Mono", monospace;
+    font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* hero */
+  .hero {
+    position: relative;
+    padding: clamp(76px, 17vh, 176px) 0 clamp(60px, 13vh, 128px);
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(120% 82% at 50% -12%, rgba(255,90,150,0.34), transparent 60%),
+      radial-gradient(90% 60% at 82% 0%, rgba(46,230,255,0.13), transparent 55%),
+      linear-gradient(180deg, var(--bg-2), var(--bg));
+  }
+  .hero .wrap { display: flex; flex-direction: column; gap: 26px; }
+  .hero-name {
+    font-family: "Anton", sans-serif; font-weight: 400;
+    text-transform: uppercase; line-height: 0.84; letter-spacing: 0.01em;
+    font-size: clamp(3.6rem, 14vw, 10rem);
+    transform: skewX(-6deg);
+    background: linear-gradient(178deg, #ffffff 0%, #ffe1ef 32%, var(--pink) 68%, #c21f6a 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 0 30px rgba(255,46,126,0.45), 0 0 72px rgba(255,46,126,0.22);
+    width: fit-content;
+  }
+  .hero-tag {
+    max-width: 44ch; font-size: clamp(1.02rem, 1.6vw, 1.25rem); color: var(--muted);
+  }
+  .hero-meta {
+    font-family: "Space Mono", monospace;
+    font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2);
+  }
+  .hero-meta b { color: var(--ink); font-weight: 700; }
+  .hero-meta .spark { color: var(--cyan); margin: 0 0.5em; }
+
+  /*  section frame  */
+  .section { padding: clamp(66px, 11vh, 130px) 0; border-bottom: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 44px; flex-wrap: wrap; }
+  .section-title {
+    font-family: "Anton", sans-serif; font-weight: 400; text-transform: uppercase;
+    font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: 0.02em; line-height: 1;
+    transform: skewX(-6deg);
+  }
+
+  /*  shows  */
+  .shows-list { display: flex; flex-direction: column; }
+  .show-row {
+    display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 28px;
+    padding: 22px 20px 22px 16px;
+    border-top: 1px solid var(--line);
+    border-left: 2px solid transparent;
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  }
+  .shows-list .show-row:last-child { border-bottom: 1px solid var(--line); }
+  .show-row:hover {
+    background: var(--panel);
+    border-left-color: var(--pink);
+    transform: translateX(4px);
+  }
+  .show-date { font-family: "Space Mono", monospace; line-height: 1.25; }
+  .show-date .d-day { font-size: 1.9rem; color: var(--ink); display: block; }
+  .show-date .d-rest { font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--cyan); }
+  .show-venue { display: flex; flex-direction: column; gap: 3px; }
+  .show-venue .v-name {
+    font-family: "Anton", sans-serif; font-size: 1.32rem; letter-spacing: 0.02em;
+    text-transform: uppercase; color: var(--ink); transform: skewX(-5deg); width: fit-content;
+  }
+  .show-venue .v-city { font-size: 0.9rem; color: var(--muted); }
+  .show-cta { justify-self: end; }
+  .ticket-link {
+    font-family: "Space Mono", monospace; font-size: 0.76rem; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--ink); border: 1px solid var(--pink); padding: 10px 16px; white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ticket-link:hover { background: var(--pink); color: #170018; box-shadow: 0 0 22px rgba(255,46,126,0.5); }
+  .sold-out {
+    font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold); padding: 10px 16px; white-space: nowrap;
+  }
+  .show-empty {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 40px 16px; color: var(--muted);
+    font-family: "Space Mono", monospace; letter-spacing: 0.06em; font-size: 0.9rem;
+  }
+
+  /* video  */
+  .video-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
+    border: 1px solid var(--line); background: var(--panel);
+    box-shadow: 0 0 60px rgba(255,46,126,0.12);
+  }
+  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  /*  band bio  */
+  .bio { max-width: 60ch; display: flex; flex-direction: column; gap: 20px; }
+  .bio p { color: var(--muted); font-size: 1.06rem; }
+  .bio p strong { color: var(--ink); font-weight: 600; }
+  .bio .booking { color: var(--muted-2); font-family: "Space Mono", monospace; font-size: 0.82rem; letter-spacing: 0.06em; }
+  .bio .booking a { color: var(--cyan); }
+
+  /*  follow  */
+  .follow-links { display: flex; flex-wrap: wrap; gap: 14px; }
+  .follow-links a {
+    font-family: "Space Mono", monospace; font-size: 0.8rem; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line); padding: 12px 20px;
+    transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .follow-links a:hover { color: var(--ink); border-color: var(--pink); box-shadow: 0 0 18px rgba(255,46,126,0.28); }
+
+  .foot {
+    padding: 40px 0 64px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted-2);
+  }
+  .foot-brand { font-family: "Anton", sans-serif; letter-spacing: 0.05em; color: var(--muted); transform: skewX(-6deg); }
+  .foot a { color: var(--muted); }
+  .foot a:hover { color: var(--pink); }
+
+  /*  motion  */
+  .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade { opacity: 1; transform: none; transition: none; }
+    .show-row:hover { transform: none; }
+  }
+
+  /*  responsive  */
+  @media (max-width: 720px) {
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.64rem; letter-spacing: 0.1em; }
+    .show-row {
+      grid-template-columns: 84px 1fr;
+      grid-template-areas: "date venue" "date cta";
+      gap: 6px 20px; align-items: start;
+    }
+    .show-date { grid-area: date; align-self: center; }
+    .show-date .d-day { font-size: 1.5rem; }
+    .show-venue { grid-area: venue; }
+    .show-cta { grid-area: cta; justify-self: start; margin-top: 8px; }
+  }
+  @media (max-width: 460px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+  <!--  NAV  -->
+  <nav class="nav">
+    <a href="#top" class="nav-brand">VAIN WILD</a>
+    <div class="nav-links">
+      <a href="#shows">Shows</a>
+      <a href="#video">Video</a>
+      <a href="#band">Band</a>
+      <a href="#follow">Follow</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="eyebrow">British Hard Rock <span class="spark">-</span> Est. 2023</span>
+      <h1 class="hero-name">VAIN WILD</h1>
+      <p class="hero-tag fade">British hard rock straight out of London - big choruses, bigger hair, and a debut album out now.</p>
+      <p class="hero-meta fade"><b>DEBUT ALBUM 'VAIN WILD' - OUT NOW</b> <span class="spark">-</span> London, UK</p>
+    </div>
+  </header>
+
+  <!-- reads shows.json -->
+  <section class="section" id="shows">
+    <div class="wrap">
+      <div class="section-head fade">
+        <span class="eyebrow">On Tour</span>
+        <h2 class="section-title">Shows</h2>
+      </div>
+      <div class="shows-list" id="shows-list"><!-- injected from shows.json --></div>
+    </div>
+  </section>
+
+  <!-- video-->
+  <section class="section" id="video">
+    <div class="wrap">
+      <div class="section-head fade">
+        <span class="eyebrow">Watch</span>
+        <h2 class="section-title">Video</h2>
+      </div>
+      <div class="video-frame fade">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/fkevQnrwG94"
+          title="VAIN WILD - Off The Chain (Official Video)"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- band bio -->
+  <section class="section" id="band">
+    <div class="wrap">
+      <div class="section-head fade">
+        <span class="eyebrow">Who</span>
+        <h2 class="section-title">The Band</h2>
+      </div>
+      <div class="bio fade">
+        <p><strong>VAIN WILD</strong>. Every decade a British Rock n' Roll band comes around to set fire to the musical landscape. VAIN WILD aims to be that band.
+With a sound heavily inspired by the 80s Glam Metal movement, they have grown massively on social media for their refreshing take on the genre and their magnetic presence. 
+Having toured the country in support of their 2026 debut album, not a single person leaves a VAIN WILD show unsatisfied. 
+VAIN WILD is Artem, James Brown and Harry Hallifax </p>
+        <p class="booking">Bookings - <a href="mailto:Vainwild@gmail.com">Vainwild@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!--  FOLLOW  -->
+  <section class="section" id="follow">
+    <div class="wrap">
+      <div class="section-head fade">
+        <span class="eyebrow"></span>
+        <h2 class="section-title">Follow</h2>
+      </div>
+      <div class="follow-links fade">
+        <a href="https://www.instagram.com/vainwild/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@vainwild" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/channel/UCG0edtxUxhBF9sUS0cfdj1w" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://open.spotify.com/artist/4YucUcFaaYEFwxKBOGweht" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://www.facebook.com/vainwild/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://elasticstage.com/vainwild" target="_blank" rel="noopener">Merch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap foot">
+    <span class="foot-brand">VAIN WILD</span>
+    <span>Bookings <a href="mailto:Vainwild@gmail.com">Vainwild@gmail.com</a> &nbsp;·&nbsp; &copy; <span id="year"></span></span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // entrance fade
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".fade").forEach((el) => io.observe(el));
+    } else {
+      document.querySelectorAll(".fade").forEach((el) => el.classList.add("in"));
+    }
+
+    // shows: load shows.json, drop past dates, sort, render
+    const MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    const DOW    = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+    // Fallback only used if shows.json can't be read
+    const FALLBACK = [
+      { date: "2026-09-18", venue: "the gig list loading is fucked lmao", city: "mitcham, UK", ticketUrl: "https://example.com", soldOut: false },
+    ];
+
+    function renderShows(shows) {
+      const list = document.getElementById("shows-list");
+      const today = new Date(); today.setHours(0,0,0,0);
+
+      const upcoming = shows
+        .filter((s) => new Date(s.date + "T00:00:00") >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      if (upcoming.length === 0) {
+        list.innerHTML = '<div class="show-empty">No shows announced right now &mdash; check back soon, or follow below to hear first.</div>';
+        return;
+      }
+
+      list.innerHTML = upcoming.map((s) => {
+        const d = new Date(s.date + "T00:00:00");
+        const dateBlock =
+          '<div class="show-date">' +
+            '<span class="d-day">' + String(d.getDate()).padStart(2,"0") + " " + MONTHS[d.getMonth()] + '</span>' +
+            '<span class="d-rest">' + DOW[d.getDay()] + " " + String(d.getDate()).padStart(2,"0") + " " + MONTHS[d.getMonth()] + " " + d.getFullYear() + '</span>' +
+          '</div>';
+        const venueBlock =
+          '<div class="show-venue">' +
+            '<span class="v-name">' + s.venue + '</span>' +
+            '<span class="v-city">' + s.city + '</span>' +
+          '</div>';
+        let ctaBlock = '<div class="show-cta"></div>';
+        if (s.soldOut) {
+          ctaBlock = '<div class="show-cta"><span class="sold-out">Sold Out</span></div>';
+        } else if (s.ticketUrl) {
+          ctaBlock = '<div class="show-cta"><a class="ticket-link" href="' + s.ticketUrl + '" target="_blank" rel="noopener">Tickets &rarr;</a></div>';
+        }
+        return '<div class="show-row">' + dateBlock + venueBlock + ctaBlock + '</div>';
+      }).join("");
+    }
+
+    fetch("shows.json", { cache: "no-cache" })
+      .then((r) => { if (!r.ok) throw new Error("no file"); return r.json(); })
+      .then(renderShows)
+      .catch(() => {
+        console.info("shows.json not loaded — using built-in sample. Resolves once served over http / deployed.");
+        renderShows(FALLBACK);
+      });
+  </script>
+</body>
+</html>
