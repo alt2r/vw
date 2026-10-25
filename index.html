@@ -26,6 +26,7 @@
     --cyan:     #2ee6ff;
     --gold:     #ffc93d;
     --maxw:     1080px;
+    --nav-h: 64px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,6 +62,7 @@
     background: rgba(21,0,24,0.7);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
+     height: var(--nav-h);
   }
   .nav-brand {
     font-family: "Anton", sans-serif;
@@ -78,15 +80,18 @@
 
   /* hero */
   .hero {
-    position: relative;
-    padding: clamp(76px, 17vh, 176px) 0 clamp(60px, 13vh, 128px);
-    border-bottom: 1px solid var(--line);
-    background:
-      radial-gradient(120% 82% at 50% -12%, rgba(255,90,150,0.34), transparent 60%),
-      radial-gradient(90% 60% at 82% 0%, rgba(46,230,255,0.13), transparent 55%),
-      linear-gradient(180deg, var(--bg-2), var(--bg));
-  }
-  .hero .wrap { display: flex; flex-direction: column; gap: 26px; }
+  position: sticky;
+  top: var(--nav-h);                     /* required for sticky to work */
+  min-height: 100vh;
+  min-height: calc(100svh - var(--nav-h));
+  display: flex;               /* keeps the content vertically placed */
+  align-items: center;
+  padding: clamp(76px, 17vh, 176px) 0 clamp(60px, 13vh, 128px);
+  border-bottom: 1px solid var(--line);
+  background: url("gay men.jpeg") center 13% / cover no-repeat;
+  z-index: 0;
+}
+.hero .wrap { width: 100%; }   /* so the flex centring doesn't shrink it */
   .hero-name {
     font-family: "Anton", sans-serif; font-weight: 400;
     text-transform: uppercase; line-height: 0.84; letter-spacing: 0.01em;
@@ -106,6 +111,28 @@
   }
   .hero-meta b { color: var(--ink); font-weight: 700; }
   .hero-meta .spark { color: var(--cyan); margin: 0 0.5em; }
+  /* Content that slides up over the image */
+  .content {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding: 4rem 1.5rem;
+    max-width: 100%;
+  }
+  .content .inner { max-width: 700px; margin: 0 auto; }
+  .content p { line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* Rounded top edge looks nice as it slides over */
+  .content.rounded {
+    border-radius: 24px 24px 0 0;
+    margin-top: -24px;
+  }
+
+.overlay {
+  position: relative;
+  z-index: 1; 
+  background: var(--bg);              
+}
 
   /*  section frame  */
   .section { padding: clamp(66px, 11vh, 130px) 0; border-bottom: 1px solid var(--line); }
@@ -233,13 +260,17 @@
     <div class="wrap">
       <span class="eyebrow">British Hard Rock <span class="spark">-</span> Est. 2023</span>
       <h1 class="hero-name">VAIN WILD</h1>
-      <img src="vwpng.png" alt="Girl in a jacket" height="226" width="286">
-      <p class="hero-tag fade">Glammed Up British hard rock straight out of London- debut album out now.</p>
-      <p class="hero-meta fade"><b>DEBUT ALBUM 'VAIN WILD' - OUT NOW</b> <span class="spark">-</span> London, UK</p>
     </div>
   </header>
 
   <!-- reads shows.json -->
+   <div class="overlay">
+    <div class="wrap">
+      <br>
+    <img src="vwpng.png" alt="band logo" height="226" width="286">
+      <p class="hero-tag fade">Glammed Up British hard rock straight out of London- debut album out now.</p>
+      <p class="hero-meta fade"><b>DEBUT ALBUM 'VAIN WILD' - OUT NOW</b> <span class="spark">-</span> London, UK</p>
+      </div>
   <section class="section" id="shows">
     <div class="wrap">
       <div class="section-head fade">
@@ -283,6 +314,7 @@ VAIN WILD is Artem, James Brown and Harry Hallifax </p>
       </div>
     </div>
   </section>
+  
 
   <!--  FOLLOW  -->
   <section class="section" id="follow">
@@ -306,6 +338,7 @@ VAIN WILD is Artem, James Brown and Harry Hallifax </p>
     <span class="foot-brand">VAIN WILD</span>
     <span>Bookings <a href="mailto:Vainwild@gmail.com">Vainwild@gmail.com</a> &nbsp;·&nbsp; &copy; <span id="year"></span></span>
   </footer>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
